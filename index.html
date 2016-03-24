@@ -270,11 +270,11 @@ var ref = new Firebase("https://robotface.firebaseio.com/expression");
 
 				var y = d3.scale.linear()
 					.domain([0,1]).range([0, height]);
-
+console.log(x);
 				var svg = d3.select("#emotion_chart").append("svg")
 					.attr("width", width + margin.left + margin.right)
 					.attr("height", height + margin.top + margin.bottom)
-				ref.set(width);
+				
 				svg.selectAll("rect").
 				  data(emotionData).
 				  enter().
