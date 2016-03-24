@@ -259,14 +259,15 @@
 				var margin = {top : 20, right : 20, bottom : 10, left : 40},
 					width = 400 - margin.left - margin.right,
 					height = 100 - margin.top - margin.bottom;
-
+					var ref = new Firebase("https://robotface.firebaseio.com/expression");
+ref.set(width);
 				var barWidth = 30;
 
 				var formatPercent = d3.format(".0%");
 				
 				var x = d3.scale.linear()
 					.domain([0, ec.getEmotions().length]).range([margin.left, width+margin.left]);
-var ref = new Firebase("https://robotface.firebaseio.com/expression");
+
 
 				var y = d3.scale.linear()
 					.domain([0,1]).range([0, height]);
@@ -280,7 +281,7 @@ var ref = new Firebase("https://robotface.firebaseio.com/expression");
 				  enter().
 				  append("svg:rect").
 				  attr("x", function(datum, index) { return x(index);
-ref.set(x(index));
+
 				   }).
 				  attr("y", function(datum) { return height - y(datum.value); }).
 				  attr("height", function(datum) { return y(datum.value); }).
