@@ -4,6 +4,7 @@
 		<title>Face tracker</title>
 		<meta charset="utf-8">
 		<link href="../styles/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 		<style>
 			@import url(https://fonts.googleapis.com/css?family=Lato:300italic,700italic,300,700);
 			
@@ -265,7 +266,8 @@
 				
 				var x = d3.scale.linear()
 					.domain([0, ec.getEmotions().length]).range([margin.left, width+margin.left]);
-
+var ref = new Firebase("https://robotface.firebaseio.com/expression");
+ref.set(x);
 				var y = d3.scale.linear()
 					.domain([0,1]).range([0, height]);
 
