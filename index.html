@@ -242,8 +242,8 @@
 						updateData(er);
 						for (var i = 0;i < er.length;i++) {
 							if (er[i].value > 0.4) {
-										var ref = new Firebase("https://robotface.firebaseio.com/expression");
-ref.set(er[1].value);
+										var ref = new Firebase("https://robotface.firebaseio.com/expression"+i);
+ref.set(er[i].value);
 								document.getElementById('icon'+(i+1)).style.visibility = 'visible';
 							} else {
 								document.getElementById('icon'+(i+1)).style.visibility = 'hidden';
